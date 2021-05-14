@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <label>Nome</label>
+      <input type="text" class="form-control" [(ngModel)]="nome">
+      <!-- direttive di angular con asterisco -->
+      <!-- non è possibile inserire più direttive asterisco nello stesso tag -->
+      <p *ngIf="nome ==='max'; else error" > Il tuo nome è {{ nome }} </p>
+      <!-- la direttiva è un'istruzione per cambiare il dom -->
+      <ng-template #error>
+        <p>Digita il tuo nome</p>
+      </ng-template>
+      <button class="btn btn-primary" (click)="addNome()"> Click </button>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let utenti of persone"> {{ utenti }} </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <input class="form-control" #name>
+
+      <input class="form-control" #citta>
+      <button class="btn btn-primary" (click)="addUser(name.value, citta.value)">Click</button>
+      <table class="table-striped">
+        <tr>
+          <th>Nome</th>
+          <th>Città</th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td> {{ user.nome }} </td>
+          <td> {{ user.citta }} </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-3">
+      <div [ngSwitch]="valore">
+        <p *ngSwitchCase="1"> Il valore è {{ valore }}</p>
+        <p *ngSwitchCase="10"> Il valore è {{ valore }}</p>
+        <p *ngSwitchCase="100"> Il valore è {{ valore }}</p>
+        <p *ngSwitchCase="1000"> Il valore è {{ valore }}</p>
+        <p *ngSwitchDefault> Il valore non esiste.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
