@@ -16,6 +16,8 @@ export class AppComponent {
     {nome: 'Maria', citta: 'Napoli'}
   ];
   valore = 10;
+  classe = true;
+  
 addNome(){
   this.persone.push(this.nome);
   }
